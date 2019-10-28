@@ -1,11 +1,13 @@
 import React from "react";
-
+import Title from "./Title";
+import SearchBar from "./SearchBar";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Star Wars App</h1>
+      <Title></Title>
+      <SearchBar></SearchBar>
     </div>
   );
 }
