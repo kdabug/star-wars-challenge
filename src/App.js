@@ -3,11 +3,10 @@ import Title from "./Title";
 import SearchBar from "./SearchBar";
 import RenderCards from "./RenderCards";
 import "./App.css";
-import data from "./characters.json";
+
 import Loading from "./Loading";
 
 function App() {
-  const [characterData] = useState(data.characters);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [filmData, setFilmData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +31,6 @@ function App() {
     <div className="App">
       <Title />
       <SearchBar
-        characterData={characterData}
         selectedCharacter={selectedCharacter}
         setSelectedCharacter={setSelectedCharacter}
       />

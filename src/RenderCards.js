@@ -9,7 +9,7 @@ const CardsContainer = styled.div`
 function RenderCards({ films }) {
   return (
     <CardsContainer>
-      {films.map({movie} => (
+      {films.map(movie => (
         <Card>
           <h1>Star Wars App</h1>
         </Card>
