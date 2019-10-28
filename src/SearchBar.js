@@ -5,7 +5,7 @@ const Search = styled.div`
   color: blue;
 `;
 
-function SearchBar() {
+function SearchBar({ selectedCharacter, characterData, setCharacterData }) {
   return <Search></Search>;
 }
 
