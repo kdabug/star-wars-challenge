@@ -3,12 +3,14 @@ import Title from "./Title";
 import SearchBar from "./SearchBar";
 import RenderCards from "./RenderCards";
 import "./App.css";
+import ErrorBoundary from "./ErrorBoundary";
 
 import Loading from "./Loading";
 
 function App() {
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [currentCharacter, setCurrentCharacter] = useState(null);
+  const [foundError, setFoundError] = useState(false);
 
   const [filmData, setFilmData] = useState(null);
 
@@ -19,16 +21,22 @@ function App() {
         .then(res => res.json())
         .then(response => {
           console.log("selectedChar + Response", selectedCharacter, response);
-          setCurrentCharacter(response);
+          if (!response.detail) {
+            setFoundError(false);
+            setCurrentCharacter(response);
+          } else {
+            setFoundError(true);
+          }
         })
-        .catch(error => console.log(error));
+        .catch(error => console.log("ERROR", error));
     }
   }, [selectedCharacter]);
 
   useEffect(() => {
-    console.log(currentCharacter);
-    if (currentCharacter != null) {
+    console.log(currentCharacter, foundError);
+    if (currentCharacter !== null) {
       async function fetchData() {
+        console.log("CC", currentCharacter.films);
         const response = currentCharacter.films.map(async film => {
           const response = await fetch(film);
           return response.json();
@@ -36,24 +44,28 @@ function App() {
         const result = await Promise.all(response);
         setFilmData(result);
       }
-      fetchData();
+      if (!foundError) {
+        fetchData();
+      }
     }
-  }, [currentCharacter]);
+  }, [currentCharacter, foundError]);
 
   const handleCharacterSubmit = newSelectedCharacter => {
     setSelectedCharacter(newSelectedCharacter);
   };
 
   return (
-    <div className="App">
+    <ErrorBoundary>
       <Title />
       <SearchBar
         selectedCharacter={selectedCharacter}
         onSubmit={handleCharacterSubmit}
       />
-      {filmData === null && currentCharacter !== null && <Loading />}
+      {filmData === null && (currentCharacter !== null || foundError) && (
+        <Loading error={foundError} />
+      )}
       {filmData !== null && <RenderCards films={filmData} />}
-    </div>
+    </ErrorBoundary>
   );
 }
 

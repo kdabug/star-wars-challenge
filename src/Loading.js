@@ -5,8 +5,12 @@ const LoadingContainer = styled.div`
   border: solid 10px pink;
 `;
 
-function Loading() {
-  return <LoadingContainer>Loading this is. Wait you must.</LoadingContainer>;
+function Loading({ error }) {
+  return (
+    <LoadingContainer>
+      {error ? "Jedi...I am your Error" : "Loading this is. Wait you must."}
+    </LoadingContainer>
+  );
 }
 
 export default Loading;
