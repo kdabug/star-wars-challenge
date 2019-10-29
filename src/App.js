@@ -8,8 +8,9 @@ import Loading from "./Loading";
 
 function App() {
   const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const [currentCharacter, setCurrentCharacter] = useState(null);
+
   const [filmData, setFilmData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     console.log(selectedCharacter);
@@ -17,14 +18,27 @@ function App() {
       fetch(selectedCharacter.url)
         .then(res => res.json())
         .then(response => {
-          console.log(selectedCharacter, response);
-          // setSelectedCharacter(response.items);
-          // setIsLoading(true);
-          // setFilmData(response.items.films);
+          console.log("selectedChar + Response", selectedCharacter, response);
+          setCurrentCharacter(response);
         })
         .catch(error => console.log(error));
     }
   }, [selectedCharacter]);
+
+  useEffect(() => {
+    console.log(currentCharacter);
+    if (currentCharacter != null) {
+      async function fetchData() {
+        const response = currentCharacter.films.map(async film => {
+          const response = await fetch(film);
+          return response.json();
+        });
+        const result = await Promise.all(response);
+        setFilmData(result);
+      }
+      fetchData();
+    }
+  }, [currentCharacter]);
 
   const handleCharacterSubmit = newSelectedCharacter => {
     setSelectedCharacter(newSelectedCharacter);
@@ -37,11 +51,8 @@ function App() {
         selectedCharacter={selectedCharacter}
         onSubmit={handleCharacterSubmit}
       />
-      {filmData === null ? (
-        <Loading isLoading={isLoading} />
-      ) : (
-        <RenderCards setIsLoading={setIsLoading} films={filmData} />
-      )}
+      {filmData === null && currentCharacter !== null && <Loading />}
+      {filmData !== null && <RenderCards films={filmData} />}
     </div>
   );
 }

@@ -9,11 +9,10 @@ const CardsContainer = styled.div`
 function RenderCards({ films }) {
   return (
     <CardsContainer>
-      {films.map(movie => (
-        <Card>
-          <h1>Star Wars App</h1>
-        </Card>
-      ))}
+      {films.map((movie, i) => {
+        console.log(movie);
+        return <Card key={`${movie}-${i}`} movie={movie}></Card>;
+      })}
     </CardsContainer>
   );
 }

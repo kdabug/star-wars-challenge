@@ -2,13 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledCard = styled.div`
-  color: blue;
+  color: grey;
+  background-color: black;
+  border: 3px solid gold;
 `;
 
-function Card() {
+function Card({ movie }) {
   return (
     <StyledCard>
-      <h1>Star Wars App</h1>
+      <h1>{movie.title}</h1>
     </StyledCard>
   );
 }
