@@ -12,10 +12,9 @@ const SearchForm = styled.form`
 `;
 
 function SearchBar({ onSubmit, selectedCharacter }) {
-  function handleClick(event) {
-    console.log(event);
-    onSubmit([{ name: event.label, url: event.value }]);
-  }
+  const handleClick = ({ label, value }) => {
+    onSubmit({ name: label, url: value });
+  };
   return (
     <SearchForm>
       <Select options={characterSelect} onChange={handleClick} />
