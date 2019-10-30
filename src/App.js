@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Title from "./Title";
-import SearchBar from "./SearchBar";
-import RenderCards from "./RenderCards";
+import Title from "./components/Title";
+import SearchBar from "./components/SearchBar";
+import RenderCards from "./components/RenderCards";
 import "./App.css";
-import ErrorBoundary from "./ErrorBoundary";
+import ErrorBoundary from "./components/ErrorBoundary";
 
-import Loading from "./Loading";
+import Loading from "./components/Loading";
 
 function App() {
   const [selectedCharacter, setSelectedCharacter] = useState(null);

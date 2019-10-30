@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Select from "react-select";
-import data from "./characters.json";
+import data from "./../characters.json";
 
 const characterSelect = data.characters.map(character => {
   return { value: character.url, label: character.name };
