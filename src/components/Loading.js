@@ -1,15 +1,20 @@
 import React from "react";
 import styled from "styled-components";
+import Message from "./Message";
 
 const LoadingContainer = styled.div`
-  border: solid 10px pink;
+  color: green;
 `;
 
-function Loading({ error }) {
+function Loading({ data, condition }) {
   return (
-    <LoadingContainer>
-      {error ? "Jedi...I am your Error" : "Loading this is. Wait you must."}
-    </LoadingContainer>
+    <>
+      {data && condition && (
+        <Message>
+          <LoadingContainer>"Loading this is. Wait you must."</LoadingContainer>
+        </Message>
+      )}
+    </>
   );
 }
 

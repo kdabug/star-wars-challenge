@@ -3,7 +3,7 @@ import Title from "./components/Title";
 import SearchBar from "./components/SearchBar";
 import RenderCards from "./components/RenderCards";
 import "./App.css";
-import ErrorBoundary from "./components/ErrorBoundary";
+import Error from "./components/Error";
 
 import Loading from "./components/Loading";
 
@@ -55,17 +55,16 @@ function App() {
   };
 
   return (
-    <ErrorBoundary>
+    <>
       <Title />
       <SearchBar
         selectedCharacter={selectedCharacter}
         onSubmit={handleCharacterSubmit}
       />
-      {filmData === null && (currentCharacter !== null || foundError) && (
-        <Loading error={foundError} />
-      )}
-      {filmData !== null && <RenderCards films={filmData} />}
-    </ErrorBoundary>
+      <Loading condition={currentCharacter !== null} data={filmData === null} />
+      <Error error={foundError} />
+      <RenderCards films={filmData} />
+    </>
   );
 }
 

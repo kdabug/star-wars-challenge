@@ -8,12 +8,16 @@ const CardsContainer = styled.div`
 
 function RenderCards({ films }) {
   return (
-    <CardsContainer>
-      {films.map((movie, i) => {
-        console.log(movie);
-        return <Card key={`${movie}-${i}`} movie={movie}></Card>;
-      })}
-    </CardsContainer>
+    <>
+      {films && (
+        <CardsContainer>
+          {films.map((movie, i) => {
+            console.log(movie);
+            return <Card key={`${movie}-${i}`} movie={movie}></Card>;
+          })}
+        </CardsContainer>
+      )}
+    </>
   );
 }
 
