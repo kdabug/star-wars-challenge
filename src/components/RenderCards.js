@@ -6,10 +6,10 @@ const CardsContainer = styled.div`
   border: solid 10px royalblue;
 `;
 
-function RenderCards({ films }) {
+function RenderCards({ films, error }) {
   return (
     <>
-      {films && (
+      {films && !error && (
         <CardsContainer>
           {films.map((movie, i) => {
             console.log(movie);

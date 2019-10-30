@@ -63,7 +63,7 @@ function App() {
       />
       <Loading condition={currentCharacter !== null} data={filmData === null} />
       <Error error={foundError} />
-      <RenderCards films={filmData} />
+      <RenderCards films={filmData} error={foundError} />
     </>
   );
 }
