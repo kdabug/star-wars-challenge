@@ -4,7 +4,9 @@ import Card from "./Card";
 import Accordion from "react-bootstrap/Accordion";
 
 const CardsContainer = styled.div`
-  border: solid 10px royalblue;
+  .card {
+    background-color: black;
+  }
 `;
 
 function RenderCards({ films, error }) {

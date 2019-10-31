@@ -4,6 +4,9 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import "./fonts/SfDistantGalaxy-0l3d.ttf";
+import "./fonts/anakinmono.ttf";
+import "./fonts/StarWars.ttf";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
