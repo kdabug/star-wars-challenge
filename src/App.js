@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Title from "./Title";
-import SearchBar from "./SearchBar";
-import RenderCards from "./RenderCards";
+import Title from "./components/Title";
+import SearchBar from "./components/SearchBar";
+import RenderCards from "./components/RenderCards";
 import "./App.css";
-import ErrorBoundary from "./ErrorBoundary";
+import Error from "./components/Error";
 
-import Loading from "./Loading";
+import Loading from "./components/Loading";
 
 function App() {
   const [selectedCharacter, setSelectedCharacter] = useState(null);
@@ -55,17 +55,16 @@ function App() {
   };
 
   return (
-    <ErrorBoundary>
+    <>
       <Title />
       <SearchBar
         selectedCharacter={selectedCharacter}
         onSubmit={handleCharacterSubmit}
       />
-      {filmData === null && (currentCharacter !== null || foundError) && (
-        <Loading error={foundError} />
-      )}
-      {filmData !== null && <RenderCards films={filmData} />}
-    </ErrorBoundary>
+      <Loading condition={currentCharacter !== null} data={filmData === null} />
+      <Error error={foundError} />
+      <RenderCards films={filmData} error={foundError} />
+    </>
   );
 }
 
