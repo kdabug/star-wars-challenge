@@ -31,11 +31,11 @@ function Card({ movie, i }) {
         <BootstrapCard.Header defaultActiveKey={i}>
           <h1>{movie.title}</h1>
           <h4>Release Date: {releaseDate}</h4>
-          <Accordion.Toggle as={Button} variant="link" eventKey="0">
+          <Accordion.Toggle as={Button} variant="link" eventKey={i}>
             Click me!
           </Accordion.Toggle>
         </BootstrapCard.Header>
-        <Accordion.Collapse eventKey="0">
+        <Accordion.Collapse eventKey={i}>
           <BootstrapCard.Body>{movie.opening_crawl}</BootstrapCard.Body>
         </Accordion.Collapse>
       </StyledCard>
