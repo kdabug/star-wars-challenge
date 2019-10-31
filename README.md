@@ -17,9 +17,9 @@ Project is deployed using TBD.
 
 ## Built With
 
- - Framework: [React.js](https://reactjs.org/)
- - Styling: [Styled Components](https://www.styled-components.com/)
-
+ - Framework: [React.js](https://reactjs.org/), [React-Bootstrap](https://react-bootstrap.github.io/)
+ - Styling: [Styled Components](https://www.styled-components.com/), [React-Select](https://react-select.com/home)
+  
 
 
 

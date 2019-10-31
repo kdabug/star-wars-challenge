@@ -11,7 +11,7 @@ function Error({ error }) {
     <>
       {error && (
         <Message>
-          <ErrorContainer>"Error exists. Fear, you must not."</ErrorContainer>
+          <ErrorContainer>Error exists. Fear, you must not.</ErrorContainer>
         </Message>
       )}
     </>

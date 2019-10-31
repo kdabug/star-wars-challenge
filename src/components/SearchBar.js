@@ -8,8 +8,39 @@ const characterSelect = data.characters.map(character => {
 });
 
 const SearchForm = styled.form`
-  color: blue;
+  color: gold;
+  font-family: "Anakin";
+  border-style: 2px solid grey;
+  background-color: black;
+  outline: none;
 `;
+
+const colorStyles = {
+  control: styles => ({ ...styles, backgroundColor: "black" }),
+  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+    const color = "lightgrey";
+    return {
+      ...styles,
+      outline: "none",
+      backgroundColor: isDisabled
+        ? null
+        : isSelected
+        ? "black"
+        : isFocused
+        ? "grey"
+        : "black",
+      color: "gold",
+      ":active": {
+        ...styles[":active"],
+        backgroundColor: !isDisabled && (isSelected ? "white" : color),
+        color: color
+      }
+    };
+  },
+  input: styles => ({ ...styles }),
+  placeholder: styles => ({ ...styles }),
+  singleValue: (styles, { data }) => ({ ...styles })
+};
 
 function SearchBar({ onSubmit, selectedCharacter }) {
   const handleClick = ({ label, value }) => {
@@ -17,7 +48,11 @@ function SearchBar({ onSubmit, selectedCharacter }) {
   };
   return (
     <SearchForm>
-      <Select options={characterSelect} onChange={handleClick} />
+      <Select
+        options={characterSelect}
+        styles={colorStyles}
+        onChange={handleClick}
+      />
     </SearchForm>
   );
 }

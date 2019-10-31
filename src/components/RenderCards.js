@@ -1,23 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "./Card";
+import Accordion from "react-bootstrap/Accordion";
 
 const CardsContainer = styled.div`
-  border: solid 10px royalblue;
+  .card {
+    background-color: black;
+  }
 `;
 
 function RenderCards({ films, error }) {
   return (
-    <>
+    <Accordion>
       {films && !error && (
         <CardsContainer>
           {films.map((movie, i) => {
             console.log(movie);
-            return <Card key={`${movie}-${i}`} movie={movie}></Card>;
+            return <Card key={`${movie}-${i}`} movie={movie} i={i} />;
           })}
         </CardsContainer>
       )}
-    </>
+    </Accordion>
   );
 }
 

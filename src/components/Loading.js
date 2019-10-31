@@ -11,7 +11,7 @@ function Loading({ data, condition }) {
     <>
       {data && condition && (
         <Message>
-          <LoadingContainer>"Loading this is. Wait you must."</LoadingContainer>
+          <LoadingContainer>Loading this is. Wait you must.</LoadingContainer>
         </Message>
       )}
     </>
