@@ -10,10 +10,10 @@ function RenderCards({ films, error }) {
   return (
     <>
       {films && !error && (
-        <CardsContainer>
+        <CardsContainer class="accordian">
           {films.map((movie, i) => {
             console.log(movie);
-            return <Card key={`${movie}-${i}`} movie={movie}></Card>;
+            return <Card key={`${movie}-${i}`} movie={movie} class="card" />;
           })}
         </CardsContainer>
       )}
