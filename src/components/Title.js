@@ -27,7 +27,7 @@ const StyledTitle = styled.div`
 function Title() {
   return (
     <StyledTitle>
-      <h3>Star Wars App</h3>
+      <h3>Star Wars</h3>
       <h1>Movie Finder</h1>
       <p>gADB</p>
     </StyledTitle>
