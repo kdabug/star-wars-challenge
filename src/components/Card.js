@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { Card as BootstrapCard } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Accordion from "react-bootstrap/Accordion";
 
 const StyledCard = styled.div`
   color: grey;
@@ -7,7 +10,7 @@ const StyledCard = styled.div`
   border: 3px solid gold;
 `;
 
-function Card({ movie }) {
+function Card({ movie, i }) {
   const date = new Date(movie.release_date);
 
   const weekdays = [
@@ -23,28 +26,20 @@ function Card({ movie }) {
     weekdays[date.getDay()] + ", " + date.toDateString().slice(4);
   console.log(date, releaseDate);
   return (
-    <StyledCard class="card-header">
-      <h1>{movie.title}</h1>
-      <h4>Release Date: {releaseDate}</h4>
-      <button
-        class="btn btn-link"
-        type="button"
-        data-toggle="collapse"
-        data-target="#collapseOne"
-        aria-expanded="true"
-        aria-controls="collapseOne"
-      >
-        Opening Crawl
-      </button>
-      <div
-        id="collapseOne"
-        class="collapse show"
-        aria-labelledby="headingOne"
-        data-parent="#accordionExample"
-      >
-        <div class="card-body">{movie.opening_crawl}</div>
-      </div>
-    </StyledCard>
+    <BootstrapCard>
+      <StyledCard>
+        <BootstrapCard.Header defaultActiveKey={i}>
+          <h1>{movie.title}</h1>
+          <h4>Release Date: {releaseDate}</h4>
+          <Accordion.Toggle as={Button} variant="link" eventKey="0">
+            Click me!
+          </Accordion.Toggle>
+        </BootstrapCard.Header>
+        <Accordion.Collapse eventKey="0">
+          <BootstrapCard.Body>{movie.opening_crawl}</BootstrapCard.Body>
+        </Accordion.Collapse>
+      </StyledCard>
+    </BootstrapCard>
   );
 }
 

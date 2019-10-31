@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "./Card";
+import Accordion from "react-bootstrap/Accordion";
 
 const CardsContainer = styled.div`
   border: solid 10px royalblue;
@@ -8,16 +9,16 @@ const CardsContainer = styled.div`
 
 function RenderCards({ films, error }) {
   return (
-    <>
+    <Accordion>
       {films && !error && (
-        <CardsContainer class="accordian">
+        <CardsContainer>
           {films.map((movie, i) => {
             console.log(movie);
-            return <Card key={`${movie}-${i}`} movie={movie} class="card" />;
+            return <Card key={`${movie}-${i}`} movie={movie} i={i} />;
           })}
         </CardsContainer>
       )}
-    </>
+    </Accordion>
   );
 }
 
