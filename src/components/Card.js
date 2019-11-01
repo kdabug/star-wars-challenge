@@ -54,7 +54,7 @@ function Card({ movie, i }) {
   return (
     <BootstrapCard>
       <StyledCard>
-        <BootstrapCard.Header defaultActiveKey={i}>
+        <BootstrapCard.Header defaultactivekey={i}>
           <h1>{movie.title}</h1>
           <h4>Release Date: {releaseDate}</h4>
           <Accordion.Toggle as={Button} variant="link" eventKey={i}>

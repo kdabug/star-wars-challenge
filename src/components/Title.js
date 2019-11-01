@@ -29,7 +29,7 @@ function Title() {
     <StyledTitle>
       <h3>Star Wars</h3>
       <h1>Movie Finder</h1>
-      <p>gADB</p>
+      <p>}9gvw</p>
     </StyledTitle>
   );
 }
