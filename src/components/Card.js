@@ -10,10 +10,13 @@ const StyledCard = styled.div`
   padding: 0% 10%;
   border: 3px solid gold;
   margin: 20px 0;
-
+  h1 {
+    text-align: center;
+  }
   h4 {
     font-family: "Anakin";
     font-size: 0.9rem;
+    text-align: center;
   }
   p {
     font-family: "Anakin";
@@ -28,7 +31,8 @@ const StyledCard = styled.div`
     justify-content: center;
     border: 1px solid grey;
     border-radius: 5px;
-    margin: auto;
+    margin: 10px auto;
+    padding: 5px;
   }
   button:active {
     transform: scale(0.9);
