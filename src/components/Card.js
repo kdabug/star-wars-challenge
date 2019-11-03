@@ -34,6 +34,10 @@ const StyledCard = styled.div`
     transform: scale(0.9);
     transition: transform ease-in-out;
   }
+  .opening-crawl:hover {
+    color: gold;
+    cursor: cell;
+  }
 `;
 
 function Card({ movie, i }) {
@@ -63,7 +67,7 @@ function Card({ movie, i }) {
         </BootstrapCard.Header>
         <Accordion.Collapse eventKey={i}>
           <BootstrapCard.Body>
-            <p>{movie.opening_crawl}</p>
+            <p className="opening-crawl">{movie.opening_crawl}</p>
           </BootstrapCard.Body>
         </Accordion.Collapse>
       </StyledCard>
