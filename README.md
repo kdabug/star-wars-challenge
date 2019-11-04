@@ -13,7 +13,7 @@ You need to have [node](https://nodejs.org/en/) installed on your computer and a
 
 ## Deployment
 
-Project is deployed using TBD. 
+Project is deployed using [Heroku](https://signup.heroku.com/). 
 
 ## Built With
 
