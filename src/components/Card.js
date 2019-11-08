@@ -58,11 +58,11 @@ function Card({ movie, i }) {
   ];
   const releaseDate =
     weekdays[date.getDay()] + ", " + date.toDateString().slice(4);
-  console.log(date, releaseDate);
+
   return (
     <BootstrapCard>
       <StyledCard>
-        <BootstrapCard.Header defaultactivekey={i}>
+        <BootstrapCard.Header>
           <h1>{movie.title}</h1>
           <h4>Release Date: {releaseDate}</h4>
           <Accordion.Toggle as={Button} variant="link" eventKey={i}>
