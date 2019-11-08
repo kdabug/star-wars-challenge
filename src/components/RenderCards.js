@@ -15,7 +15,6 @@ function RenderCards({ films, error }) {
       {films && !error && (
         <CardsContainer>
           {films.map((movie, i) => {
-            console.log(movie);
             return <Card key={`${movie}-${i}`} movie={movie} i={i} />;
           })}
         </CardsContainer>

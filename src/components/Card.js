@@ -58,7 +58,7 @@ function Card({ movie, i }) {
   ];
   const releaseDate =
     weekdays[date.getDay()] + ", " + date.toDateString().slice(4);
-  console.log(date, releaseDate);
+
   return (
     <BootstrapCard>
       <StyledCard>

@@ -11,16 +11,13 @@ function App() {
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [currentCharacter, setCurrentCharacter] = useState(null);
   const [foundError, setFoundError] = useState(false);
-
   const [filmData, setFilmData] = useState(null);
 
   useEffect(() => {
-    console.log(selectedCharacter);
     if (selectedCharacter != null) {
       fetch(selectedCharacter.url)
         .then(res => res.json())
         .then(response => {
-          console.log("selectedChar + Response", selectedCharacter, response);
           if (!response.detail) {
             setFoundError(false);
             setCurrentCharacter(response);
@@ -33,10 +30,8 @@ function App() {
   }, [selectedCharacter]);
 
   useEffect(() => {
-    console.log(currentCharacter, foundError);
     if (currentCharacter !== null) {
       async function fetchData() {
-        console.log("CC", currentCharacter.films);
         const response = currentCharacter.films.map(async film => {
           const response = await fetch(film);
           return response.json();
